@@ -17,4 +17,4 @@ test_db_config = {"user": "postgres",
 def test_ping():
     resp = app.test_client().get('/ping')
     assert resp.status_code == 200
-    assert resp.data == b'{"ping":"pong"}\n'
+    assert resp.data == b'{"ping": "pong"}\n'
