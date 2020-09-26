@@ -57,8 +57,6 @@ def test_create_user():
     assert result["user_created"] == False
     assert result["error"].pgcode == '22P02'
 
-    # tear_down(cursor, db.db_driver)
-
 
 def test_get_user():
     db = test_db()
