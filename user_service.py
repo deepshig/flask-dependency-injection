@@ -8,12 +8,14 @@ class Accessor:
         self.db = db
 
     def create_user(self, name):
-        user_details = {"id": uuid.uuid4(),
+        id = uuid.uuid4()
+        user_details = {"id": id,
                         "name": name}
 
         result = self.db.create_user(user_details)
         if result["user_created"]:
             user_details["user_created"] = True
+            user_details["id"] = str(id)
             return user_details
         else:
             return result
