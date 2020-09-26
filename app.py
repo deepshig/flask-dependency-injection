@@ -29,10 +29,23 @@ class CreateUser(Resource):
         resp = self.svc.create_user(name)
         return resp, 201
 
+class GetUser(Resource):
+    def __init__(self, db):
+        self.svc = Accessor(db)
+
+    def get(self, id):
+        resp = self.svc.get_user(id)
+        if resp["user_fetched"]:
+            status = 200
+        else:
+            status = 404
+        return resp, status
+
 db = init_db(db_config)
 
 api.add_resource(Ping, '/ping')
 api.add_resource(CreateUser, '/user/create/<string:name>', resource_class_kwargs={"db": db})
+api.add_resource(GetUser, '/user/get/<string:id>', resource_class_kwargs={"db": db})
 
 if __name__ == '__main__':
     app.run(debug=True, use_debugger=False, use_reloader=False,
