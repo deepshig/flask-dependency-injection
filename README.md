@@ -1,6 +1,7 @@
 # Flask Dependency Injection
 
 This is an example implementation to create Restful APIs with Python Flask framework.
+It creates a simple user details data model in a PostgreSQL DB, and provides API to create and read this data.
 
 ## Dependencies
 * [Python 3.8.5](https://www.python.org/downloads/release/python-385/)
@@ -10,4 +11,5 @@ This is an example implementation to create Restful APIs with Python Flask frame
 * [Pytest](https://docs.pytest.org/en/stable/)
 
 ## Running the code
+* To run the app : `python app.py`
 * To run the tests : `cd tests && py.test && cd ../`
